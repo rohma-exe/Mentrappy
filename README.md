@@ -1,34 +1,68 @@
 # MentRappy – Mental Therapy Platform
 
-A small-scale academic Java project developed across the first and second semesters of a Software Engineering degree. The project began as a console-based application and was later extended into a Java Swing desktop application.
+MentRappy is a small-scale academic project developed across the first and second semesters of a Software Engineering degree. It began as a console-based Java application and was later extended into a desktop GUI application using Java Swing and object-oriented programming concepts.
 
-## Project versions
+## Repository structure
 
-The prepared source package contains both versions in separate folders:
+```text
+MentRappy/
+├── console-version/   # First-semester console application
+├── swing-version/     # Second-semester Java Swing application
+├── .env.example       # Names of optional SMTP environment variables
+└── README.md
+```
 
-- `console-version/`: first-semester console application with patient and doctor registration/login workflows, validation, file-based storage, and email-related functionality.
-- `swing-version/`: second-semester Java Swing application with patient/doctor screens, navigation, contact/support forms, a basic appointment interface, payment-form validation (no payment gateway or real payment processing), and a song library with playback and ratings.
+## Versions
 
-The project demonstrates the progression from introductory Java programming to GUI development and object-oriented design, including classes, inheritance, abstraction, and encapsulation.
+### Console version
+
+The initial implementation provides console-based patient and doctor workflows, including registration and login, input validation, and file-based data storage. It also includes email-related functionality for verification and account alerts.
+
+### Swing version
+
+The later implementation introduces a graphical interface and object-oriented structure. It includes patient/doctor registration and login screens, application navigation, contact/support forms, a basic appointment interface, a payment form with input validation (no payment gateway or real payment processing), and a song library with playback and rating functionality.
+
+Some screens and workflows are intentionally basic or incomplete because this was an introductory, small-scale academic project.
 
 ## Technologies
 
-Java · Java Swing · Maven · Jakarta Mail · Java Sound API · File-based storage / serialization
+- Java
+- Java Swing
+- Object-oriented programming (classes, inheritance, abstraction, encapsulation)
+- Java serialization / file-based storage
+- Java Sound API
+- Jakarta Mail (optional email functionality)
+- Maven
 
-## Running the project
+## Requirements
 
-Each version is a separate Maven project. From the relevant version directory, run:
+- JDK 19 (or a compatible newer JDK)
+- Maven
+
+Each version is a separate Maven project. Open a terminal in the corresponding directory and run:
 
 ```bash
 mvn clean package
 ```
 
+To launch the application with Maven, run:
+
+```bash
+mvn exec:java
+```
+
 The Swing entry point is `com.company.maingui.MainGUI`; the console entry point is `com.company.mentrappy.MentRappy`.
 
-## Email configuration and security
+## Optional email configuration
 
-Email functionality requires SMTP credentials supplied through environment variables; no real credentials are included in the cleaned source package. See its `.env.example` file for the variable names. Never commit real credentials or local `.env` files. If you previously used the Gmail app password embedded in an earlier copy of this project, revoke it in your Google Account.
+Email functionality is disabled unless SMTP credentials are supplied through environment variables. Set:
 
-## Academic scope
+- `MENTRAPPY_GMAIL_USERNAME`
+- `MENTRAPPY_GMAIL_APP_PASSWORD`
+- `MENTRAPPY_SUPPORT_RECIPIENT` (Swing support form)
 
-MentRappy is presented as an introductory academic prototype, not a production-ready mental-health service. Some workflows are basic or incomplete, and the payment screen does not process real payments.
+See `.env.example` for the variable names. Do not commit real credentials, `.env` files, personal data, or generated build output. The Gmail app password previously embedded in the original source has been removed from this cleaned version; revoke that credential in Google Account security settings if it has not already been revoked.
+
+## Academic context
+
+This repository preserves the two stages of the original student project to show the progression from console-based programming to GUI development and object-oriented design. It is presented as an academic prototype, not a production-ready mental-health service.

@@ -1,0 +1,16 @@
+# Java / Maven build output
+target/
+**/target/
+*.class
+*.log
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+nbproject/private/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
